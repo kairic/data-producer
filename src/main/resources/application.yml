@@ -1,0 +1,23 @@
+fixedDelay: 500000
+spring:
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: realtime.price
+          contentType: text/plain
+          binder: cloudamqp
+      binders:
+          cloudamqp:
+            type: rabbit
+            environment:
+              spring:
+                rabbitmq:
+                  host: reindeer.rmq.cloudamqp.com
+                  username: ljusxulb
+                  password: -7nRMBlcgedOHF_ExpEBhvm-DUgjZtIk
+                  virtualHost: ljusxulb
+
+---
+spring:
+  profiles: heroku
